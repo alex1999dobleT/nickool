@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nickol 💚</title>
+    <style>
+        /* Estilos generales */
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #d4fc79, #96e6a1);
+            color: #2e7d32;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .mensaje {
+            font-size: 18px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor de imágenes */
+        .imagenes {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .imagenes img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botones */
+        .botones {
+            margin-top: 20px;
+        }
+
+        .boton {
+            font-size: 18px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .si {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .si:hover {
+            background-color: #45a049;
+        }
+
+        .no {
+            background-color: #FF5733;
+            color: white;
+            position: absolute;
+        }
+
+        .no:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Mensaje final */
+        #mensaje {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Para Nickol 💚</h1>
+
+    <div class="mensaje">
+        <p>Nickol, sé que estás molesta, sé que me dijiste muchas cosas ese día, tal vez fue por el calor del momento y no te culpo porque en parte tenías razón. Tal vez no pueda arreglarlo y, ¿sabes qué? No sé cómo hacerlo.  
+        Pero sé que todo tiene solución y también sé que no puedo tomar el camino fácil. Perdón por lo que causé ese día, solo quiero hablarlo contigo y quiero que me escuches, porque sé que también quieres hablar conmigo, pero tal vez no lo hiciste porque estabas enojada o ocupada.  
+        Yo solo te quiero a ti y a nadie más, y eso es en serio. Nuevamente discúlpame, te hice algo especial. No es dinero jaja, pero es algo que estoy aprendiendo en la U y lo que aprendí en el cole. Espero que puedas perdonarme...</p>
+    </div>
+
+    <div class="imagenes">
+        <img id="foto" src="foto1.jpg" alt="Foto juntos">
+    </div>
+
+    <p>¿Me perdonas? 🙈💖</p>
+
+    <div class="botones">
+        <button class="boton si" onclick="irAVideo();">Sí</button>
+        <button class="boton no" onmouseover="moverBoton();" onclick="irAVideo();">No</button>
+    </div>
+
+    <p id="mensaje">Por favor, después de ver el video, <a id="segundoVideo" href="#" target="_blank">haz clic aquí</a> para ver otro mensaje importante. 💚</p>
+
+    <script>
+        // Lista de fotos para cambiar automáticamente
+        let fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg"];
+        let index = 0;
+
+        function cambiarFoto() {
+            index = (index + 1) % fotos.length;
+            document.getElementById("foto").src = fotos[index];
+        }
+
+        setInterval(cambiarFoto, 3000); // Cambia cada 3 segundos
+
+        // Función para mover el botón "No"
+        function moverBoton() {
+            let botonNo = document.querySelector(".no");
+
+            let maxWidth = window.innerWidth - botonNo.clientWidth - 50;
+            let maxHeight = window.innerHeight - botonNo.clientHeight - 50;
+
+            let x = Math.random() * maxWidth;
+            let y = Math.random() * maxHeight;
+
+            botonNo.style.left = x + "px";
+            botonNo.style.top = y + "px";
+        }
+
+        // Función para abrir el primer video y luego mostrar el segundo
+        function irAVideo() {
+            let primerVideo = "https://youtu.be/DA46YhrTtKI?si=o63183mdx-YSfleh"; 
+            let segundoVideo = "https://www.youtube.com/watch?v=vEFBj3mlnt4"; 
+
+            document.getElementById("mensaje").style.display = "block";
+            document.getElementById("segundoVideo").href = segundoVideo;
+
+            window.open(primerVideo, "_blank"); // Abre el primer video en nueva pestaña
+        }
+    </script>
+
+</body>
+</html>
